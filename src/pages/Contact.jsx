@@ -24,7 +24,8 @@ export default function Contact() {
     let description = '';
     if (proj) description = `${t.common.askDemo} : ${proj[lang].name}\n\n`;
     if (sol) description = `${sol.title}\n\n`;
-    return { name: '', company: '', email: '', service: t.services.items.some((s) => s.id === service) ? service : '', description, budget: '', website: '' };
+    const collab = t.home.ways.some((w) => w.id === params.get('collab')) ? params.get('collab') : '';
+    return { name: '', company: '', email: '', collab, service: t.services.items.some((s) => s.id === service) ? service : '', description, budget: '', website: '' };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang]);
 
@@ -57,7 +58,7 @@ export default function Contact() {
       const r = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, serviceLabel, lang }),
+        body: JSON.stringify({ ...data, serviceLabel, collabLabel: t.home.ways.find((w) => w.id === data.collab)?.title || '', lang }),
       });
       if (!r.ok) throw new Error();
       setStatus('success');
@@ -116,7 +117,14 @@ export default function Contact() {
                     <textarea {...aria('description')} rows={6} className={cls('description')} value={data.description} onChange={set('description')} placeholder={f.placeholderDesc} />
                     <Err k="description" />
                   </div>
-                  <div className="sm:col-span-2">
+                  <div>
+                    <Label k="collab" opt>{f.collab}</Label>
+                    <select {...aria('collab')} className={cls('collab')} value={data.collab} onChange={set('collab')}>
+                      <option value="">—</option>
+                      {t.home.ways.map((w) => <option key={w.id} value={w.id}>{w.title}</option>)}
+                    </select>
+                  </div>
+                  <div>
                     <Label k="budget" opt>{f.budget}</Label>
                     <select {...aria('budget')} className={cls('budget')} value={data.budget} onChange={set('budget')}>
                       <option value="">—</option>

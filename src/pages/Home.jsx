@@ -1,4 +1,5 @@
-import { Bot, Workflow, Megaphone, PlugZap, Check, LayoutGrid } from 'lucide-react';
+import { Bot, Workflow, Megaphone, PlugZap, Check, LayoutGrid, Lightbulb, Briefcase, Handshake, Wrench, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { href, useI18n } from '../i18n/index.jsx';
 import { useSeo } from '../lib/seo.js';
 import { projects } from '../data/projects.js';
@@ -7,6 +8,7 @@ import { CtaBand, Process, ProjectCard } from '../components/blocks.jsx';
 import HeroIllustration from '../components/HeroIllustration.jsx';
 
 const pillarIcons = [Bot, Workflow, Megaphone, PlugZap, LayoutGrid];
+const wayIcons = { projet: Lightbulb, mission: Briefcase, agence: Handshake, suivi: Wrench };
 
 export default function Home() {
   const { lang, t } = useI18n();
@@ -19,6 +21,15 @@ export default function Home() {
         <GridBackdrop />
         <Container className="relative grid items-center gap-12 pb-24 pt-14 lg:grid-cols-[1.08fr_.92fr] lg:pb-28 lg:pt-20">
           <div>
+            <Reveal>
+              <Link to={href(lang, 'contact')} className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 py-1.5 pl-3 pr-4 text-[13px] font-semibold text-accent transition hover:border-accent/60 hover:bg-accent/15">
+                <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent" />
+                </span>
+                {h.available}
+              </Link>
+            </Reveal>
             <Reveal><Eyebrow light>{h.eyebrow}</Eyebrow></Reveal>
             <Reveal delay={80}>
               <h1 className="mt-6 text-[2.5rem] font-bold leading-[1.06] tracking-tight text-white sm:text-6xl">
@@ -76,6 +87,29 @@ export default function Home() {
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.filter((p) => p.category === 'ai').slice(0, 3).map((p, i) => <ProjectCard key={p.slug} p={p} delay={i * 80} />)}
+          </div>
+        </Container>
+      </section>
+
+      {/* Travaillons ensemble */}
+      <section className="relative overflow-hidden bg-navy-950 py-24">
+        <GridBackdrop />
+        <Container className="relative">
+          <SectionHead eyebrow="Collaboration" title={h.workTitle} lead={h.workLead} light />
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {h.ways.map((w, i) => {
+              const Icon = wayIcons[w.id];
+              return (
+                <Reveal key={w.id} delay={i * 80} className="group flex flex-col rounded-2xl border border-white/10 bg-white/[.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/[.05]">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-navy-950"><Icon size={20} aria-hidden="true" /></span>
+                  <h3 className="mt-5 text-lg font-bold text-white">{w.title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-white/60">{w.text}</p>
+                  <Link to={`${href(lang, 'contact')}?collab=${w.id}`} className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                    {w.cta}<ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </Container>
       </section>

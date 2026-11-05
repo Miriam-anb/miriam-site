@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
   const d = {
     name: clip(b.name, 120), company: clip(b.company, 160), email: clip(b.email, 160),
-    service: clip(b.serviceLabel || b.service, 160), description: clip(b.description, 5000), budget: clip(b.budget, 80), lang: b.lang === 'en' ? 'en' : 'fr',
+    service: clip(b.serviceLabel || b.service, 160), description: clip(b.description, 5000), budget: clip(b.budget, 80), collab: clip(b.collabLabel || b.collab, 120), lang: b.lang === 'en' ? 'en' : 'fr',
   };
   if (!d.name || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email) || !d.service || d.description.length < 10) {
     return res.status(422).json({ ok: false, error: 'invalid' });
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   const pass = process.env.MAIL_PASSWORD;
   if (!user || !pass) return res.status(500).json({ ok: false, error: 'mail_not_configured' });
 
-  const rows = [['Nom', d.name], ['Entreprise', d.company || '—'], ['E-mail', d.email], ['Service', d.service], ['Budget', d.budget || '—'], ['Langue', d.lang.toUpperCase()]];
+  const rows = [['Nom', d.name], ['Entreprise', d.company || '—'], ['E-mail', d.email], ['Collaboration', d.collab || '—'], ['Service', d.service], ['Budget', d.budget || '—'], ['Langue', d.lang.toUpperCase()]];
   const html = `<div style="font-family:Arial,sans-serif;color:#15171C;max-width:600px">
     <h2 style="color:#0A1730">Nouvelle demande depuis le site</h2>
     <table style="border-collapse:collapse;width:100%">${rows.map(([k, v]) => `<tr><td style="padding:6px 10px;background:#F4F6F9;font-weight:bold;width:120px">${k}</td><td style="padding:6px 10px">${esc(v)}</td></tr>`).join('')}</table>

@@ -17,6 +17,7 @@ export default {
     toComplete: 'To be completed',
   },
   home: {
+    available: 'Available for new projects',
     eyebrow: 'AI Agent & Automation Developer · Cotonou, Benin',
     title1: 'Transform your business processes with',
     titleEm: 'artificial intelligence',
@@ -33,12 +34,20 @@ export default {
       { title: 'APIs & interfaces', text: 'Your apps connected to each other, with a simple web interface when needed.' },
       { title: 'Web apps & B2B', text: 'Custom web applications and B2B platforms, built with the help of AI.' },
     ],
+    workTitle: 'Let’s work together',
+    workLead: 'Whether you have a clear idea, a project already under way or clients to support, there is a simple way to collaborate.',
+    ways: [
+      { id: 'projet', title: 'Custom project', text: 'You have an idea or a need: I design the solution and deliver it ready to use — AI agent, automation or web platform.', cta: 'Discuss my project' },
+      { id: 'mission', title: 'Freelance assignment', text: 'I join your ongoing project for a set period, remotely, and fit into your team and tools.', cta: 'Offer an assignment' },
+      { id: 'agence', title: 'Agency partnership', text: 'I take care of the AI, automation or development work for your agency’s clients.', cta: 'Partner with me' },
+      { id: 'suivi', title: 'Support and growth', text: 'Maintenance, fixes and new features after delivery, so your solution stays reliable.', cta: 'Request support' },
+    ],
     projectsTitle: 'Recent work',
     projectsLead: 'Projects actually built, from idea to production.',
     processTitle: 'How does it work?',
     processLead: 'A clear collaboration, step by step.',
-    ctaTitle: 'Is a task taking too much of your time?',
-    ctaText: 'Tell me what you need: I will suggest a tailored solution that is simple to use every day.',
+    ctaTitle: 'Have a project in mind?',
+    ctaText: 'I am available for new assignments and collaborations. Tell me what you need and I will suggest a tailored solution.',
   },
   process: [
     { title: 'Needs analysis', text: 'Together we identify the tasks to automate, your tools and your goals.' },
@@ -136,6 +145,7 @@ export default {
     stackTitle: 'Tools and technologies',
     stack: ['n8n', 'AI Agents', 'OpenAI API', 'Claude API', 'REST APIs', 'Webhooks', 'PHP', 'Laravel', 'Vue', 'HTML / CSS', 'Flutter', 'Functional testing'],
     languages: 'Languages: French, English',
+    availability: 'Available for freelance work, remotely, for businesses in Benin and internationally.',
   },
   contact: {
     eyebrow: 'Contact & quote',
@@ -143,7 +153,7 @@ export default {
     lead: 'Do you have an automation project or want to bring artificial intelligence into your business? Let’s talk about your needs.',
     form: {
       name: 'Full name', company: 'Company', email: 'Email address', service: 'Service needed', description: 'Project description',
-      budget: 'Indicative budget', optional: 'optional', choose: 'Choose a service', other: 'Other / not sure yet',
+      collab: 'Type of collaboration', budget: 'Indicative budget', optional: 'optional', choose: 'Choose a service', other: 'Other / not sure yet',
       placeholderDesc: 'Which tasks would you like to automate? Which tools do you use?',
       budgets: ['Under €500', '€500 – €1,500', '€1,500 – €5,000', 'Over €5,000', 'To be defined together'],
       send: 'Send my request', sending: 'Sending…',

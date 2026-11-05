@@ -17,6 +17,7 @@ export default {
     toComplete: 'À compléter',
   },
   home: {
+    available: 'Disponible pour de nouveaux projets',
     eyebrow: 'Développeuse d’agents IA & Automatisation · Cotonou, Bénin',
     title1: 'Transformez vos processus métier grâce à',
     titleEm: 'l’intelligence artificielle',
@@ -33,12 +34,20 @@ export default {
       { title: 'API & interfaces', text: 'Vos applications connectées entre elles, avec une interface web simple quand il le faut.' },
       { title: 'Applications web & B2B', text: 'Applications web et plateformes B2B sur mesure, développées avec l’aide de l’IA.' },
     ],
+    workTitle: 'Travaillons ensemble',
+    workLead: 'Que vous ayez une idée précise, un projet déjà lancé ou des clients à accompagner, il existe une façon simple de collaborer.',
+    ways: [
+      { id: 'projet', title: 'Projet sur mesure', text: 'Vous avez une idée ou un besoin : je conçois la solution et je la livre clé en main — agent IA, automatisation ou plateforme web.', cta: 'Parler de mon projet' },
+      { id: 'mission', title: 'Mission freelance', text: 'Je rejoins votre projet en cours pour une durée définie, à distance, et je m’intègre à votre équipe et à vos outils.', cta: 'Proposer une mission' },
+      { id: 'agence', title: 'Collaboration avec les agences', text: 'Je prends en charge la partie IA, automatisation ou développement pour les clients de votre agence.', cta: 'Collaborer' },
+      { id: 'suivi', title: 'Suivi et évolution', text: 'Maintenance, corrections et nouvelles fonctionnalités après la livraison, pour que votre solution reste fiable.', cta: 'Demander un suivi' },
+    ],
     projectsTitle: 'Réalisations récentes',
     projectsLead: 'Des projets réellement développés, de l’idée à la mise en service.',
     processTitle: 'Comment ça fonctionne ?',
     processLead: 'Une collaboration claire, étape par étape.',
-    ctaTitle: 'Une tâche vous prend trop de temps ?',
-    ctaText: 'Expliquez-moi votre besoin : je vous propose une solution adaptée, simple à utiliser au quotidien.',
+    ctaTitle: 'Un projet en tête ?',
+    ctaText: 'Je suis disponible pour de nouvelles missions et collaborations. Expliquez-moi votre besoin : je vous propose une solution adaptée.',
   },
   process: [
     { title: 'Analyse du besoin', text: 'Nous identifions ensemble les tâches à automatiser, vos outils et vos objectifs.' },
@@ -136,6 +145,7 @@ export default {
     stackTitle: 'Outils et technologies',
     stack: ['n8n', 'AI Agents', 'OpenAI API', 'Claude API', 'REST APIs', 'Webhooks', 'PHP', 'Laravel', 'Vue', 'HTML / CSS', 'Flutter', 'Tests fonctionnels'],
     languages: 'Langues : français, anglais',
+    availability: 'Disponible en freelance, à distance, pour des entreprises au Bénin et à l’international.',
   },
   contact: {
     eyebrow: 'Contact et devis',
@@ -143,7 +153,7 @@ export default {
     lead: 'Vous avez un projet d’automatisation ou souhaitez intégrer l’intelligence artificielle dans votre entreprise ? Discutons de votre besoin.',
     form: {
       name: 'Nom et prénom', company: 'Entreprise', email: 'Adresse e-mail', service: 'Type de service recherché', description: 'Description du projet',
-      budget: 'Budget indicatif', optional: 'facultatif', choose: 'Choisir un service', other: 'Autre / je ne sais pas encore',
+      collab: 'Type de collaboration', budget: 'Budget indicatif', optional: 'facultatif', choose: 'Choisir un service', other: 'Autre / je ne sais pas encore',
       placeholderDesc: 'Quelles tâches souhaitez-vous automatiser ? Quels outils utilisez-vous ?',
       budgets: ['Moins de 500 €', '500 € – 1 500 €', '1 500 € – 5 000 €', 'Plus de 5 000 €', 'À définir ensemble'],
       send: 'Envoyer ma demande', sending: 'Envoi…',

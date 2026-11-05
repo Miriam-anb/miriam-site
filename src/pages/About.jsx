@@ -1,5 +1,5 @@
 import { Download, Languages, MapPin, Cpu, Workflow, Bot, PlugZap, Code2, Target } from 'lucide-react';
-import { useI18n } from '../i18n/index.jsx';
+import { href, useI18n } from '../i18n/index.jsx';
 import { useSeo } from '../lib/seo.js';
 import { site } from '../data/site.js';
 import { Button, Container, Reveal, SectionHead } from '../components/ui.jsx';
@@ -24,7 +24,14 @@ export default function About() {
         <Container className="grid gap-12 lg:grid-cols-[1.1fr_.9fr]">
           <Reveal className="space-y-5 text-lg leading-relaxed text-ink/75">
             {a.intro.map((p) => <p key={p}>{p}</p>)}
-            <div className="pt-3"><Button href={site.cv} download variant="dark"><Download size={16} aria-hidden="true" />{t.common.downloadCv}</Button></div>
+            <p className="flex items-start gap-3 rounded-xl border border-accent-deep/25 bg-accent-soft px-4 py-3 text-base text-navy-900">
+              <span className="relative mt-2 flex h-2.5 w-2.5 shrink-0" aria-hidden="true"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-deep opacity-50" /><span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-deep" /></span>
+              <span className="font-semibold">{a.availability}</span>
+            </p>
+            <div className="flex flex-wrap gap-3 pt-3">
+              <Button href={site.cv} download variant="dark"><Download size={16} aria-hidden="true" />{t.common.downloadCv}</Button>
+              <Button to={href(lang, 'contact')} variant="outlineDark" arrow>{t.common.discuss}</Button>
+            </div>
           </Reveal>
           <Reveal delay={120} className="rounded-[24px] bg-mist p-7 sm:p-8">
             <p className="text-xs font-bold uppercase tracking-[.16em] text-navy-600">{a.stackTitle}</p>
