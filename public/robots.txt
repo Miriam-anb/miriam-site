@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://miriam-anibaba.vercel.app/sitemap.xml

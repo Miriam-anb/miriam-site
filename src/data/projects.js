@@ -1,0 +1,130 @@
+// Réalisations. Pour ajouter un projet : copier un bloc, changer les textes (fr et en),
+// mettre une capture dans /public/projects/ et indiquer son chemin dans « image ».
+// « demo » : lien public de démonstration (laisser vide s'il n'y en a pas).
+// « category » : 'ai' (IA & automatisation) ou 'web' (développement web).
+
+export const projects = [
+  {
+    slug: 'fiches-produits',
+    category: 'ai',
+    image: '', // ex. '/projects/fiches-produits.jpg'
+    visual: 'catalog',
+    demo: '',
+    stack: ['n8n', 'IA générative', 'CSV Shopify', 'Interface web'],
+    fr: {
+      name: 'Assistant IA de génération de fiches produits',
+      description: 'Un assistant qui rédige les descriptions de produits et prépare un fichier prêt à importer dans une boutique en ligne.',
+      problem: 'Rédiger chaque fiche produit à la main prend énormément de temps.',
+      features: ['Développé avec n8n', 'Génération de descriptions de produits', 'Préparation d’un fichier CSV compatible Shopify', 'Interface web personnalisée'],
+    },
+    en: {
+      name: 'AI product description assistant',
+      description: 'An assistant that writes product descriptions and prepares a file ready to import into an online store.',
+      problem: 'Writing every product page by hand takes a huge amount of time.',
+      features: ['Built with n8n', 'Product description generation', 'Shopify-compatible CSV file', 'Custom web interface'],
+    },
+  },
+  {
+    slug: 'contenus-publicitaires',
+    category: 'ai',
+    image: '',
+    visual: 'ads',
+    demo: '',
+    stack: ['n8n', 'IA générative', 'Vidéo', 'Réseaux sociaux'],
+    fr: {
+      name: 'Agent IA de création de contenus publicitaires',
+      description: 'Un agent qui produit des contenus publicitaires et prépare leur diffusion sur les réseaux sociaux.',
+      problem: 'Créer des publicités et publier régulièrement demande beaucoup de temps et d’idées.',
+      features: ['Génération de contenus vidéo publicitaires', 'Création de hashtags', 'Planification et publication sur les réseaux sociaux selon les fonctionnalités opérationnelles', 'Rapports hebdomadaires selon l’état d’avancement du système'],
+    },
+    en: {
+      name: 'AI agent for ad content creation',
+      description: 'An agent that produces ad content and prepares it for publishing on social media.',
+      problem: 'Creating ads and posting regularly takes a lot of time and ideas.',
+      features: ['Video ad content generation', 'Hashtag creation', 'Social media scheduling and publishing, depending on the features in operation', 'Weekly reports, depending on the system’s progress'],
+    },
+  },
+  {
+    slug: 'agent-emploi',
+    category: 'ai',
+    image: '/projects/agent-emploi.jpg',
+    visual: 'jobs',
+    demo: 'https://agent-emploi.vercel.app',
+    stack: ['n8n', 'Apify', 'Gemini', 'Laravel', 'Vue 3', 'Vercel'],
+    fr: {
+      name: 'Agent Emploi',
+      description: 'Un service en ligne qui cherche chaque jour des offres LinkedIn pour chaque inscrit et prépare un CV adapté et une lettre de motivation pour chaque offre retenue.',
+      problem: 'Chercher des offres, adapter son CV et écrire une lettre pour chaque candidature prend des heures.',
+      features: ['Recherche LinkedIn quotidienne par utilisateur', 'Analyse de chaque offre par IA, à partir du CV', 'CV adapté en PDF et lettre de motivation', 'Tableau de bord et rapport par e-mail'],
+    },
+    en: {
+      name: 'Agent Emploi',
+      description: 'An online service that searches LinkedIn every day for each user and prepares a tailored résumé and cover letter for every matching offer.',
+      problem: 'Finding offers, tailoring a résumé and writing a letter for each application takes hours.',
+      features: ['Daily LinkedIn search per user', 'AI analysis of each offer against the résumé', 'Tailored PDF résumé and cover letter', 'Dashboard and email report'],
+    },
+  },
+  {
+    slug: 'transport-vrac',
+    category: 'web',
+    image: '',
+    visual: 'map',
+    demo: '',
+    client: true,
+    stack: ['Laravel', 'Vue 3', 'WebSocket', 'Twilio', 'HERE Maps'],
+    fr: {
+      name: 'Marketplace B2B de transport de vrac',
+      description: 'Plateforme de mise en relation entre clients et transporteurs pour le marché québécois.',
+      problem: 'Trouver rapidement un transporteur disponible et suivre les livraisons.',
+      features: ['Demandes en temps réel et système de devis', 'Matching géolocalisé', 'Notifications SMS automatisées', 'Tableau de bord multi-rôles et suivi des livraisons'],
+    },
+    en: {
+      name: 'B2B bulk transport marketplace',
+      description: 'A platform connecting customers and carriers for the Quebec market.',
+      problem: 'Quickly finding an available carrier and tracking deliveries.',
+      features: ['Real-time requests and quoting', 'Geolocated matching', 'Automated SMS notifications', 'Multi-role dashboard and delivery tracking'],
+    },
+  },
+  {
+    slug: 'echange-materiaux',
+    category: 'web',
+    image: '',
+    visual: 'map',
+    demo: '',
+    client: true,
+    stack: ['Next.js', 'NestJS', 'PostgreSQL', 'HERE Maps'],
+    fr: {
+      name: 'Plateforme d’échange de matériaux',
+      description: 'Marketplace géolocalisée reliant donneurs et receveurs de matériaux de construction au Québec.',
+      problem: 'Des matériaux réutilisables perdus faute de mise en relation.',
+      features: ['Calcul d’itinéraire adapté aux poids lourds', 'Cartographie en temps réel', 'Alertes de proximité', 'Gestion de conformité'],
+    },
+    en: {
+      name: 'Construction materials exchange',
+      description: 'A geolocated marketplace connecting givers and receivers of construction materials in Quebec.',
+      problem: 'Reusable materials wasted for lack of a way to connect people.',
+      features: ['Truck-friendly route calculation', 'Real-time mapping', 'Proximity alerts', 'Compliance management'],
+    },
+  },
+  {
+    slug: 'reseaux-b2b',
+    category: 'web',
+    image: '',
+    visual: 'grid',
+    demo: '',
+    client: true,
+    stack: ['Vue 3', 'Laravel', 'MySQL'],
+    fr: {
+      name: 'Réseaux de marketplaces B2B',
+      description: 'Plateformes B2B reliant fournisseurs et acheteurs : agrégats, pépinières et machinerie lourde.',
+      problem: 'Des acheteurs et fournisseurs dispersés, sans catalogue commun.',
+      features: ['Catalogues produits', 'Espaces fournisseurs', 'Soumissions et commandes', 'Architecture réutilisable'],
+    },
+    en: {
+      name: 'B2B marketplace network',
+      description: 'B2B platforms connecting suppliers and buyers: aggregates, nurseries and heavy machinery.',
+      problem: 'Scattered buyers and suppliers with no shared catalogue.',
+      features: ['Product catalogues', 'Supplier dashboards', 'Quotes and orders', 'Reusable architecture'],
+    },
+  },
+];
