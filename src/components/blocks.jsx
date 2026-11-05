@@ -143,7 +143,7 @@ export function ProjectCard({ p, delay = 0 }) {
       {open && <Lightbox images={images} index={active} setIndex={setActive} onClose={() => setOpen(false)} title={c.name} />}
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <h3 className="text-xl font-bold tracking-tight text-navy-950">{c.name}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-ink/70">{c.description}</p>
+        <p className="mt-2 text-sm font-semibold leading-relaxed text-navy-900">{c.description}</p>
         <p className="mt-4 rounded-xl bg-mist px-4 py-3 text-sm text-ink/80"><span className="font-semibold text-navy-900">{t.common.problem} · </span>{c.problem}</p>
         <ul className="mt-4 space-y-1.5 text-sm text-ink/75">
           {c.features.map((f) => <li key={f} className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-accent-deep" aria-hidden="true" />{f}</li>)}
