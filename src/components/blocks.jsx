@@ -145,6 +145,7 @@ export function ProjectCard({ p, delay = 0 }) {
         <h3 className="text-xl font-bold tracking-tight text-navy-950">{c.name}</h3>
         <p className="mt-2 text-sm font-semibold leading-relaxed text-navy-900">{c.description}</p>
         <p className="mt-4 rounded-xl bg-mist px-4 py-3 text-sm text-ink/80"><span className="font-semibold text-navy-900">{t.common.problem} · </span>{c.problem}</p>
+        {c.role && <p className="mt-3 rounded-xl border border-accent-deep/25 bg-accent-soft px-4 py-3 text-sm text-ink/80"><span className="font-semibold text-navy-900">{t.common.role} · </span>{c.role}</p>}
         <ul className="mt-4 space-y-1.5 text-sm text-ink/75">
           {c.features.map((f) => <li key={f} className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-accent-deep" aria-hidden="true" />{f}</li>)}
         </ul>

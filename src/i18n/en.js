@@ -13,7 +13,7 @@ export default {
     quote: 'Request a quote', discuss: 'Discuss a project', discover: 'Explore my services', seeProjects: 'See my work',
     book: 'Book a consultation', contactMe: 'Contact me', downloadCv: 'Download my résumé', learnMore: 'Learn more',
     problem: 'Problem', solution: 'Solution', features: 'Features', benefits: 'Benefits', result: 'Expected result', aiSolution: 'AI solution',
-    stack: 'Technologies', demo: 'See the demo', askDemo: 'Request a demo', clientProject: 'Client project', all: 'All',
+    stack: 'Technologies', demo: 'See the demo', askDemo: 'Request a demo', clientProject: 'Client project', role: 'My role', all: 'All',
     toComplete: 'To be completed',
   },
   home: {

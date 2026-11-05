@@ -74,6 +74,7 @@ export const projects = [
     client: true,
     stack: ['Laravel 12', 'Vue 3', 'WebSocket (Reverb)', 'Twilio SMS', 'HERE Maps', 'FR / EN'],
     fr: {
+      role: 'Intervenue en cours de projet : tests fonctionnels de la plateforme, puis réalisation des modifications demandées par le client.',
       name: 'Eazy Vrac — marketplace de transport de vrac',
       description: 'Plateforme B2B québécoise qui met en relation les clients (entrepreneurs, particuliers) et les camionneurs pour le transport de matériaux en vrac : sable, gravier, terre, pierre. Le client publie sa demande, la plateforme trouve les transporteurs disponibles et gère tout jusqu’à la livraison.',
       problem: 'Trouver vite un camion disponible, obtenir un prix et suivre la livraison se faisait au téléphone, sans visibilité.',
@@ -90,6 +91,7 @@ export const projects = [
       ],
     },
     en: {
+      role: 'Joined during the project: functional testing of the platform, then the changes requested by the client.',
       name: 'Eazy Vrac — bulk transport marketplace',
       description: 'A Quebec B2B platform connecting customers (contractors, individuals) with truckers to haul bulk materials: sand, gravel, soil, stone. The customer posts a request, the platform finds available carriers and handles everything through delivery.',
       problem: 'Finding an available truck, getting a price and tracking delivery was done by phone, with no visibility.',
@@ -109,12 +111,14 @@ export const projects = [
   {
     slug: 'terre-a-donner',
     category: 'web',
-    image: '',
+    image: '/projects/terreadonner.jpg',
+    gallery: ['/projects/terreadonner-2.jpg', '/projects/terreadonner-3.jpg'],
     visual: 'map',
     demo: '',
     client: true,
     stack: ['Next.js 15', 'NestJS', 'Prisma', 'PostgreSQL', 'HERE Maps', 'GitLab CI/CD'],
     fr: {
+      role: 'Intervenue en cours de projet : tests fonctionnels de la plateforme, puis réalisation des modifications demandées par le client.',
       name: 'Terre à Donner — échange de matériaux d’excavation',
       description: 'Plateforme B2B géolocalisée qui relie, au Québec, les chantiers qui ont de la terre ou des matériaux à évacuer (excavateurs) et ceux qui en ont besoin (receveurs). Les deux parties se trouvent sur une carte et évitent des trajets inutiles.',
       problem: 'Des matériaux réutilisables envoyés au dépotoir faute de savoir qui, à proximité, pourrait les recevoir.',
@@ -123,11 +127,11 @@ export const projects = [
         'Recherche d’adresse et calcul d’itinéraire adapté aux camions (HERE)',
         'Alertes géographiques quand une offre correspond à une zone',
         'Espaces distincts receveur et excavateur',
-        'Mise en conformité des contenus et corrections de sécurité',
         'Déploiement automatisé avec GitLab CI/CD et Docker',
       ],
     },
     en: {
+      role: 'Joined during the project: functional testing of the platform, then the changes requested by the client.',
       name: 'Terre à Donner — excavation materials exchange',
       description: 'A geolocated B2B platform in Quebec connecting job sites that need to get rid of soil or materials (excavators) with those that need them (receivers). Both sides find each other on a map and avoid wasted trips.',
       problem: 'Reusable materials sent to landfill because nobody knew who nearby could take them.',
@@ -136,7 +140,6 @@ export const projects = [
         'Address search and truck-friendly route calculation (HERE)',
         'Geographic alerts when an offer matches an area',
         'Separate receiver and excavator spaces',
-        'Content compliance work and security fixes',
         'Automated deployment with GitLab CI/CD and Docker',
       ],
     },

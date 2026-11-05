@@ -13,7 +13,7 @@ export default {
     quote: 'Demander un devis', discuss: 'Discuter d’un projet', discover: 'Découvrir mes services', seeProjects: 'Voir mes réalisations',
     book: 'Réserver une consultation', contactMe: 'Me contacter', downloadCv: 'Télécharger mon CV', learnMore: 'En savoir plus',
     problem: 'Problème', solution: 'Solution', features: 'Fonctionnalités', benefits: 'Bénéfices', result: 'Résultat attendu', aiSolution: 'Solution IA',
-    stack: 'Technologies', demo: 'Voir la démo', askDemo: 'Demander une démonstration', clientProject: 'Projet client', all: 'Tous',
+    stack: 'Technologies', demo: 'Voir la démo', askDemo: 'Demander une démonstration', clientProject: 'Projet client', role: 'Mon rôle', all: 'Tous',
     toComplete: 'À compléter',
   },
   home: {
