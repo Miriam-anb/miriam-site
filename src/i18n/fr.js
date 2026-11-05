@@ -31,6 +31,7 @@ export default {
       { title: 'Workflows n8n', text: 'Vos tâches répétitives automatisées : formulaires, e-mails, tableurs, CRM, boutiques en ligne.' },
       { title: 'Marketing automatisé', text: 'Contenus, publicités et publications préparés et planifiés automatiquement.' },
       { title: 'API & interfaces', text: 'Vos applications connectées entre elles, avec une interface web simple quand il le faut.' },
+      { title: 'Applications web & B2B', text: 'Applications web et plateformes B2B sur mesure, développées avec l’aide de l’IA.' },
     ],
     projectsTitle: 'Réalisations récentes',
     projectsLead: 'Des projets réellement développés, de l’idée à la mise en service.',
@@ -49,7 +50,7 @@ export default {
   services: {
     eyebrow: 'Services',
     title: 'Des solutions d’IA et d’automatisation pensées pour votre activité',
-    lead: 'Quatre domaines d’intervention, toujours adaptés à vos outils et à votre façon de travailler.',
+    lead: 'Cinq domaines d’intervention, toujours adaptés à vos outils et à votre façon de travailler.',
     items: [
       {
         id: 'agents', title: 'Développement d’agents IA',
@@ -79,6 +80,13 @@ export default {
         features: ['Intégration d’API REST', 'Webhooks', 'Connexion de bases de données', 'Développement d’interfaces web pour agents IA'],
         benefits: ['Des données centralisées', 'Des outils qui travaillent ensemble', 'Une solution qui évolue avec vous'],
       },
+      {
+        id: 'web', title: 'Applications web & plateformes B2B',
+        problem: 'Votre activité a besoin d’un outil en ligne sur mesure : une plateforme qui relie vos clients, vos fournisseurs ou vos équipes.',
+        solution: 'Je développe votre application web ou votre plateforme B2B, avec un développement assisté par l’IA pour livrer plus vite sans sacrifier la qualité.',
+        features: ['Applications web sur mesure', 'Plateformes B2B et marketplaces', 'Espaces multi-profils (clients, fournisseurs, administrateurs)', 'Développement assisté par l’IA', 'Sites bilingues, notifications e-mail et SMS'],
+        benefits: ['Un outil adapté à votre métier', 'Des délais de livraison réduits', 'Une base solide qui évolue avec votre activité'],
+      },
     ],
   },
   solutions: {
@@ -99,7 +107,7 @@ export default {
     title: 'Des projets réellement développés',
     lead: 'Agents IA, automatisations et applications web : chaque projet part d’un besoin concret.',
     filters: { ai: 'IA & automatisation', web: 'Développement web' },
-    noCapture: 'Capture à venir',
+    noCapture: 'Capture à venir', capture: 'Capture', close: 'Fermer', prev: 'Précédente', next: 'Suivante',
   },
   about: {
     eyebrow: 'À propos',

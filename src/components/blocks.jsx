@@ -1,4 +1,6 @@
-import { ArrowUpRight, Check, MessageSquare } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Expand, MessageSquare, X } from 'lucide-react';
 import { href, useI18n } from '../i18n/index.jsx';
 import { Button, Container, Eyebrow, GridBackdrop, Reveal, SectionHead } from './ui.jsx';
 
@@ -77,20 +79,68 @@ function ProjectVisual({ type }) {
   );
 }
 
+// Visionneuse plein écran des captures
+function Lightbox({ images, index, setIndex, onClose, title }) {
+  const { t } = useI18n();
+  const go = (d) => setIndex((index + d + images.length) % images.length);
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); if (e.key === 'ArrowRight') go(1); if (e.key === 'ArrowLeft') go(-1); };
+    window.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow; document.body.style.overflow = 'hidden';
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
+  });
+  const btn = 'flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20';
+  return createPortal(
+    <div className="fixed inset-0 z-[70] flex flex-col bg-navy-950/95 p-4 backdrop-blur-sm sm:p-8" role="dialog" aria-modal="true" aria-label={title} onClick={onClose}>
+      <div className="flex items-center justify-between gap-4 text-white" onClick={(e) => e.stopPropagation()}>
+        <p className="truncate text-sm font-semibold">{title} <span className="ml-2 font-normal text-white/50">{index + 1} / {images.length}</span></p>
+        <button type="button" onClick={onClose} className={btn} aria-label={t.projects.close} autoFocus><X size={20} /></button>
+      </div>
+      <div className="relative flex min-h-0 flex-1 items-center justify-center py-4">
+        <img src={images[index]} alt={`${title} — ${t.projects.capture} ${index + 1}`} className="max-h-full max-w-full rounded-xl object-contain shadow-2xl" onClick={(e) => e.stopPropagation()} />
+        {images.length > 1 && (
+          <>
+            <button type="button" onClick={(e) => { e.stopPropagation(); go(-1); }} className={`${btn} absolute left-0 sm:left-2`} aria-label={t.projects.prev}><ChevronLeft size={22} /></button>
+            <button type="button" onClick={(e) => { e.stopPropagation(); go(1); }} className={`${btn} absolute right-0 sm:right-2`} aria-label={t.projects.next}><ChevronRight size={22} /></button>
+          </>
+        )}
+      </div>
+    </div>,
+    document.body,
+  );
+}
+
 export function ProjectCard({ p, delay = 0 }) {
   const { lang, t } = useI18n();
   const c = p[lang];
+  const images = [p.image, ...(p.gallery || [])].filter(Boolean);
+  const [active, setActive] = useState(0);
+  const [open, setOpen] = useState(false);
   return (
     <Reveal delay={delay} as="article" className="group flex flex-col overflow-hidden rounded-[22px] border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-32px_rgba(10,23,48,.45)]">
       <div className="relative aspect-[16/10] overflow-hidden border-b border-line">
-        {p.image
-          ? <img src={p.image} alt={c.name} loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" />
+        {images.length
+          ? <button type="button" onClick={() => setOpen(true)} className="block h-full w-full cursor-zoom-in" aria-label={`${c.name} — ${t.projects.capture} ${active + 1}/${images.length}`}>
+              <img src={images[active]} alt={c.name} loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" />
+              <span className="absolute bottom-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-navy-950/70 text-white opacity-0 backdrop-blur transition group-hover:opacity-100"><Expand size={15} aria-hidden="true" /></span>
+            </button>
           : <ProjectVisual type={p.visual} />}
-        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy-900 backdrop-blur">
+        <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy-900 backdrop-blur">
           {t.projects.filters[p.category]}
         </span>
-        {!p.image && <span className="absolute bottom-3 right-4 text-[11px] font-medium text-white/40">{t.projects.noCapture}</span>}
+        {!images.length && <span className="absolute bottom-3 right-4 text-[11px] font-medium text-white/40">{t.projects.noCapture}</span>}
       </div>
+      {images.length > 1 && (
+        <div className="flex gap-2 border-b border-line bg-mist px-4 py-3">
+          {images.map((src, i) => (
+            <button key={src} type="button" onClick={() => setActive(i)} aria-label={`${t.projects.capture} ${i + 1}`} aria-pressed={i === active}
+              className={`h-11 w-[68px] overflow-hidden rounded-md border-2 transition ${i === active ? 'border-accent-deep' : 'border-transparent opacity-60 hover:opacity-100'}`}>
+              <img src={src} alt="" loading="lazy" className="h-full w-full object-cover object-top" />
+            </button>
+          ))}
+        </div>
+      )}
+      {open && <Lightbox images={images} index={active} setIndex={setActive} onClose={() => setOpen(false)} title={c.name} />}
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <h3 className="text-xl font-bold tracking-tight text-navy-950">{c.name}</h3>
         <p className="mt-2 text-sm leading-relaxed text-ink/70">{c.description}</p>

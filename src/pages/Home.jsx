@@ -1,4 +1,4 @@
-import { Bot, Workflow, Megaphone, PlugZap, Check } from 'lucide-react';
+import { Bot, Workflow, Megaphone, PlugZap, Check, LayoutGrid } from 'lucide-react';
 import { href, useI18n } from '../i18n/index.jsx';
 import { useSeo } from '../lib/seo.js';
 import { projects } from '../data/projects.js';
@@ -6,7 +6,7 @@ import { Button, Container, Eyebrow, GridBackdrop, Reveal, SectionHead } from '.
 import { CtaBand, Process, ProjectCard } from '../components/blocks.jsx';
 import HeroIllustration from '../components/HeroIllustration.jsx';
 
-const pillarIcons = [Bot, Workflow, Megaphone, PlugZap];
+const pillarIcons = [Bot, Workflow, Megaphone, PlugZap, LayoutGrid];
 
 export default function Home() {
   const { lang, t } = useI18n();
@@ -49,11 +49,11 @@ export default function Home() {
       <section className="py-24">
         <Container>
           <SectionHead eyebrow={t.nav.services} title={h.whatTitle} lead={h.whatLead} />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {h.pillars.map((p, i) => {
               const Icon = pillarIcons[i];
               return (
-                <Reveal key={p.title} delay={i * 80} className="group rounded-2xl border border-line p-7 transition-all duration-300 hover:border-navy-900/20 hover:shadow-[0_24px_50px_-30px_rgba(10,23,48,.4)]">
+                <Reveal key={p.title} delay={i * 80} className="group rounded-2xl border border-line p-6 transition-all duration-300 hover:border-navy-900/20 hover:shadow-[0_24px_50px_-30px_rgba(10,23,48,.4)]">
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-950 text-accent transition-transform duration-300 group-hover:-translate-y-1">
                     <Icon size={22} aria-hidden="true" />
                   </span>

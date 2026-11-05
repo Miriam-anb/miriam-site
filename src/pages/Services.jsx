@@ -1,10 +1,10 @@
-import { Bot, Workflow, Megaphone, PlugZap, Check, AlertCircle, Lightbulb, TrendingUp } from 'lucide-react';
+import { Bot, Workflow, Megaphone, PlugZap, LayoutGrid, Check, AlertCircle, Lightbulb, TrendingUp } from 'lucide-react';
 import { href, useI18n } from '../i18n/index.jsx';
 import { useSeo } from '../lib/seo.js';
 import { Button, Container, Reveal } from '../components/ui.jsx';
 import { CtaBand, PageHeader, Process } from '../components/blocks.jsx';
 
-const icons = { agents: Bot, process: Workflow, marketing: Megaphone, api: PlugZap };
+const icons = { agents: Bot, process: Workflow, marketing: Megaphone, api: PlugZap, web: LayoutGrid };
 
 export default function Services() {
   const { lang, t } = useI18n();

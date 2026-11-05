@@ -31,6 +31,7 @@ export default {
       { title: 'n8n workflows', text: 'Repetitive tasks automated: forms, emails, spreadsheets, CRM, online stores.' },
       { title: 'Marketing automation', text: 'Content, ads and posts prepared and scheduled automatically.' },
       { title: 'APIs & interfaces', text: 'Your apps connected to each other, with a simple web interface when needed.' },
+      { title: 'Web apps & B2B', text: 'Custom web applications and B2B platforms, built with the help of AI.' },
     ],
     projectsTitle: 'Recent work',
     projectsLead: 'Projects actually built, from idea to production.',
@@ -49,7 +50,7 @@ export default {
   services: {
     eyebrow: 'Services',
     title: 'AI and automation solutions designed around your business',
-    lead: 'Four areas of expertise, always adapted to your tools and the way you work.',
+    lead: 'Five areas of expertise, always adapted to your tools and the way you work.',
     items: [
       {
         id: 'agents', title: 'AI agent development',
@@ -79,6 +80,13 @@ export default {
         features: ['REST API integration', 'Webhooks', 'Database connections', 'Web interfaces for AI agents'],
         benefits: ['Centralised data', 'Tools that work together', 'A solution that grows with you'],
       },
+      {
+        id: 'web', title: 'Web applications & B2B platforms',
+        problem: 'Your business needs a custom online tool: a platform that connects your customers, suppliers or teams.',
+        solution: 'I build your web application or B2B platform, using AI-assisted development to deliver faster without cutting corners.',
+        features: ['Custom web applications', 'B2B platforms and marketplaces', 'Multi-role spaces (customers, suppliers, admins)', 'AI-assisted development', 'Bilingual sites, email and SMS notifications'],
+        benefits: ['A tool built around your business', 'Shorter delivery times', 'A solid base that grows with you'],
+      },
     ],
   },
   solutions: {
@@ -99,7 +107,7 @@ export default {
     title: 'Projects actually built',
     lead: 'AI agents, automations and web applications: every project starts from a real need.',
     filters: { ai: 'AI & automation', web: 'Web development' },
-    noCapture: 'Screenshot coming soon',
+    capture: 'Screenshot', close: 'Close', prev: 'Previous', next: 'Next', noCapture: 'Screenshot coming soon',
   },
   about: {
     eyebrow: 'About',
