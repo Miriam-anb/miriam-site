@@ -75,7 +75,7 @@ export const projects = [
     stack: ['Laravel 12', 'Vue 3', 'WebSocket (Reverb)', 'Twilio SMS', 'HERE Maps', 'FR / EN'],
     fr: {
       name: 'Eazy Vrac — marketplace de transport de vrac',
-      description: 'Plateforme québécoise qui met en relation les clients (entrepreneurs, particuliers) et les camionneurs pour le transport de matériaux en vrac : sable, gravier, terre, pierre. Le client publie sa demande, la plateforme trouve les transporteurs disponibles et gère tout jusqu’à la livraison.',
+      description: 'Plateforme B2B québécoise qui met en relation les clients (entrepreneurs, particuliers) et les camionneurs pour le transport de matériaux en vrac : sable, gravier, terre, pierre. Le client publie sa demande, la plateforme trouve les transporteurs disponibles et gère tout jusqu’à la livraison.',
       problem: 'Trouver vite un camion disponible, obtenir un prix et suivre la livraison se faisait au téléphone, sans visibilité.',
       features: [
         'Parcours complet : demande, devis, acceptation et suivi de livraison',
@@ -91,7 +91,7 @@ export const projects = [
     },
     en: {
       name: 'Eazy Vrac — bulk transport marketplace',
-      description: 'A Quebec platform connecting customers (contractors, individuals) with truckers to haul bulk materials: sand, gravel, soil, stone. The customer posts a request, the platform finds available carriers and handles everything through delivery.',
+      description: 'A Quebec B2B platform connecting customers (contractors, individuals) with truckers to haul bulk materials: sand, gravel, soil, stone. The customer posts a request, the platform finds available carriers and handles everything through delivery.',
       problem: 'Finding an available truck, getting a price and tracking delivery was done by phone, with no visibility.',
       features: [
         'Full flow: request, quote, acceptance and delivery tracking',
@@ -116,7 +116,7 @@ export const projects = [
     stack: ['Next.js 15', 'NestJS', 'Prisma', 'PostgreSQL', 'HERE Maps', 'GitLab CI/CD'],
     fr: {
       name: 'Terre à Donner — échange de matériaux d’excavation',
-      description: 'Marketplace géolocalisée qui relie, au Québec, les chantiers qui ont de la terre ou des matériaux à évacuer (excavateurs) et ceux qui en ont besoin (receveurs). Les deux parties se trouvent sur une carte et évitent des trajets inutiles.',
+      description: 'Plateforme B2B géolocalisée qui relie, au Québec, les chantiers qui ont de la terre ou des matériaux à évacuer (excavateurs) et ceux qui en ont besoin (receveurs). Les deux parties se trouvent sur une carte et évitent des trajets inutiles.',
       problem: 'Des matériaux réutilisables envoyés au dépotoir faute de savoir qui, à proximité, pourrait les recevoir.',
       features: [
         'Carte interactive des receveurs et des excavateurs',
@@ -129,7 +129,7 @@ export const projects = [
     },
     en: {
       name: 'Terre à Donner — excavation materials exchange',
-      description: 'A geolocated marketplace in Quebec connecting job sites that need to get rid of soil or materials (excavators) with those that need them (receivers). Both sides find each other on a map and avoid wasted trips.',
+      description: 'A geolocated B2B platform in Quebec connecting job sites that need to get rid of soil or materials (excavators) with those that need them (receivers). Both sides find each other on a map and avoid wasted trips.',
       problem: 'Reusable materials sent to landfill because nobody knew who nearby could take them.',
       features: [
         'Interactive map of receivers and excavators',
@@ -189,7 +189,7 @@ export const projects = [
     stack: ['Laravel 13', 'PHP 8.3', 'Sanctum', 'Vue 3', 'Vite'],
     fr: {
       name: 'Réseau Pépinière — pépinières et aménagement',
-      description: 'Déclinaison de la plateforme Réseau Agrégat pour le secteur des pépinières : paysagistes et clients trouvent des végétaux et demandent des soumissions aux pépinières du réseau.',
+      description: 'Plateforme B2B qui relie les paysagistes et les clients aux pépinières du Québec : ils trouvent des végétaux et demandent des soumissions aux pépinières du réseau. Elle reprend et adapte l’architecture de Réseau Agrégat.',
       problem: 'Trouver le bon végétal, au bon prix et en quantité suffisante, demandait de nombreux appels.',
       features: [
         'Catalogue de végétaux par pépinière',
@@ -201,7 +201,7 @@ export const projects = [
     },
     en: {
       name: 'Réseau Pépinière — nurseries and landscaping',
-      description: 'A version of the Réseau Agrégat platform for the nursery sector: landscapers and customers find plants and request quotes from the network’s nurseries.',
+      description: 'A B2B platform connecting landscapers and customers with nurseries in Quebec: they find plants and request quotes from the network’s nurseries. It reuses and adapts the Réseau Agrégat architecture.',
       problem: 'Finding the right plant, at the right price and in the right quantity took many phone calls.',
       features: [
         'Plant catalogue per nursery',
@@ -223,7 +223,7 @@ export const projects = [
     stack: ['Laravel 13', 'MySQL', 'Vue 3', 'API REST', 'HERE Truck Routing', 'Assistant IA', 'FR / EN'],
     fr: {
       name: 'Réseau Lourd — location de machinerie lourde',
-      description: 'Marketplace de location de machinerie lourde où des loueurs vérifiés soumissionnent pour le chantier du client avec un prix « rendu » tout compris, affiché poste par poste.',
+      description: 'Plateforme B2B de location de machinerie lourde où des loueurs vérifiés soumissionnent pour le chantier du client avec un prix « rendu » tout compris, affiché poste par poste.',
       problem: 'Le prix d’une location affiché par les loueurs ne comprend presque jamais le transport, l’opérateur, l’assurance ni les taxes : le vrai coût n’apparaît qu’à la facture.',
       features: [
         'Prix rendu détaillé : location, transport par fardier aller-retour, opérateur, carburant, assurance, dépôt et taxes',
@@ -239,7 +239,7 @@ export const projects = [
     },
     en: {
       name: 'Réseau Lourd — heavy machinery rental',
-      description: 'A heavy machinery rental marketplace where verified rental companies bid on the customer’s job with an all-in “landed” price, shown line by line.',
+      description: 'A B2B heavy machinery rental platform where verified rental companies bid on the customer’s job with an all-in “landed” price, shown line by line.',
       problem: 'Rental prices almost never include transport, operator, insurance or taxes: the real cost only shows up on the invoice.',
       features: [
         'Detailed landed price: rental, lowboy round trip, operator, fuel, insurance, deposit and taxes',
@@ -265,7 +265,7 @@ export const projects = [
     stack: ['Laravel', 'Vue 3', 'HERE Truck Routing', 'Assistant IA', 'FR / EN'],
     fr: {
       name: 'Réseau Excavateur — épandage et végétalisation',
-      description: 'Plateforme de soumissions pour l’épandage et la végétalisation de terrains (ensemencement hydraulique, stabilisation de talus) : le client décrit son projet, les entrepreneurs de sa région proposent un prix appliqué.',
+      description: 'Plateforme B2B de soumissions pour l’épandage et la végétalisation de terrains (ensemencement hydraulique, stabilisation de talus) : le client décrit son projet, les entrepreneurs de sa région proposent un prix appliqué.',
       problem: 'Obtenir un prix pour un épandage demandait d’appeler plusieurs entrepreneurs, sans pouvoir comparer clairement.',
       features: [
         'Demande en quelques champs : produit, application, surface (m²) et adresse',
@@ -279,7 +279,7 @@ export const projects = [
     },
     en: {
       name: 'Réseau Excavateur — spreading and revegetation',
-      description: 'A quote platform for spreading and land revegetation (hydroseeding, slope stabilisation): customers describe their project and contractors in their area offer an applied price.',
+      description: 'A B2B quote platform for spreading and land revegetation (hydroseeding, slope stabilisation): customers describe their project and contractors in their area offer an applied price.',
       problem: 'Getting a price for spreading work meant calling several contractors, with no clear way to compare.',
       features: [
         'Request in a few fields: product, application, area (m²) and address',
