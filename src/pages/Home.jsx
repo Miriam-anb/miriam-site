@@ -86,7 +86,7 @@ export default function Home() {
             <Button to={href(lang, 'projects')} variant="outlineDark" arrow>{t.common.seeProjects}</Button>
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.filter((p) => p.category === 'ai').slice(0, 3).map((p, i) => <ProjectCard key={p.slug} p={p} delay={i * 80} />)}
+            {['agent-musique-youtube', 'agent-emploi', 'reseau-lourd'].map((s) => projects.find((p) => p.slug === s)).filter(Boolean).map((p, i) => <ProjectCard key={p.slug} p={p} delay={i * 80} />)}
           </div>
         </Container>
       </section>
