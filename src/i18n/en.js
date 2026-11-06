@@ -138,7 +138,6 @@ export default {
     ],
     pathTitle: 'Background',
     seeProjects: 'See the projects',
-    stack: ['n8n', 'AI Agents', 'Gemini', 'OpenAI API', 'Claude API', 'Apify', 'REST APIs', 'Webhooks', 'Laravel', 'PHP', 'Vue 3', 'Next.js', 'NestJS', 'MySQL', 'PostgreSQL', 'HERE Maps', 'Twilio', 'Flutter', 'Bootstrap', 'Functional testing'],
     stackTitle: 'Tools and technologies',
     languages: 'Languages: French, English',
     availability: 'Available for freelance work, remotely, for businesses in Benin and internationally.',

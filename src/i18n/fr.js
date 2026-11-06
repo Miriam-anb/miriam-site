@@ -138,7 +138,6 @@ export default {
     ],
     pathTitle: 'Parcours',
     seeProjects: 'Voir les réalisations',
-    stack: ['n8n', 'Agents IA', 'Gemini', 'OpenAI API', 'Claude API', 'Apify', 'API REST', 'Webhooks', 'Laravel', 'PHP', 'Vue 3', 'Next.js', 'NestJS', 'MySQL', 'PostgreSQL', 'HERE Maps', 'Twilio', 'Flutter', 'Bootstrap', 'Tests fonctionnels'],
     stackTitle: 'Outils et technologies',
     languages: 'Langues : français, anglais',
     availability: 'Disponible en freelance, à distance, pour des entreprises au Bénin et à l’international.',
