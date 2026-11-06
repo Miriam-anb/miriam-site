@@ -190,7 +190,7 @@ export default {
           'Pre-launch testing.',
         ],
       },
-      { period: '2022 – 2025', role: 'Bachelor’s in Computer Systems and Software', place: 'Haute École du Commerce et de Management', education: true },
+      { period: '2022 – 2025', role: 'Bachelor’s in Computer Systems and Software', place: 'Haute École du Commerce et de Management (HECM) · Cotonou, Benin', education: true },
     ],
     seeProjects: 'See the projects',
     stack: ['n8n', 'AI Agents', 'Gemini', 'OpenAI API', 'Claude API', 'Apify', 'REST APIs', 'Webhooks', 'Laravel', 'PHP', 'Vue 3', 'Next.js', 'NestJS', 'MySQL', 'PostgreSQL', 'HERE Maps', 'Twilio', 'Flutter', 'Bootstrap', 'Functional testing'],

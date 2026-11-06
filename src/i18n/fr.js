@@ -190,7 +190,7 @@ export default {
           'Tests avant la mise en ligne.',
         ],
       },
-      { period: '2022 – 2025', role: 'Licence en Système Informatique et Logiciel', place: 'Haute École du Commerce et de Management', education: true },
+      { period: '2022 – 2025', role: 'Licence en Systèmes informatiques et logiciels', place: 'Haute École du Commerce et de Management (HECM) · Cotonou, Bénin', education: true },
     ],
     seeProjects: 'Voir les réalisations',
     stack: ['n8n', 'Agents IA', 'Gemini', 'OpenAI API', 'Claude API', 'Apify', 'API REST', 'Webhooks', 'Laravel', 'PHP', 'Vue 3', 'Next.js', 'NestJS', 'MySQL', 'PostgreSQL', 'HERE Maps', 'Twilio', 'Flutter', 'Bootstrap', 'Tests fonctionnels'],
