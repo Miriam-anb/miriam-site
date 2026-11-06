@@ -157,7 +157,7 @@ export function ProjectCard({ p, delay = 0 }) {
             ? <Button href={p.demo} target="_blank" rel="noopener" variant="dark">{t.common.demo}<ArrowUpRight size={16} aria-hidden="true" /></Button>
             : p.client
               ? <span className="inline-flex items-center gap-2 text-sm font-medium text-ink/50">{t.common.clientProject}</span>
-              : <Button to={`${href(lang, 'contact')}?projet=${p.slug}`} variant="outlineDark"><MessageSquare size={16} aria-hidden="true" />{t.common.askDemo}</Button>}
+              : null}
         </div>
       </div>
     </Reveal>
