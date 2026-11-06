@@ -1,10 +1,10 @@
-import { MessagesSquare, FileText, Users, BellRing, Megaphone, FolderCog, ArrowRight, ArrowDown } from 'lucide-react';
+import { MessagesSquare, FileText, Users, BellRing, Megaphone, PhoneCall, FolderCog, ArrowRight, ArrowDown } from 'lucide-react';
 import { href, useI18n } from '../i18n/index.jsx';
 import { useSeo } from '../lib/seo.js';
 import { Button, Container, Reveal } from '../components/ui.jsx';
 import { CtaBand, PageHeader } from '../components/blocks.jsx';
 
-const icons = [MessagesSquare, FileText, Users, BellRing, Megaphone, FolderCog];
+const icons = [MessagesSquare, FileText, Users, BellRing, Megaphone, PhoneCall, FolderCog];
 
 export default function Solutions() {
   const { lang, t } = useI18n();
@@ -23,7 +23,7 @@ export default function Solutions() {
               { label: t.common.result, text: it.result, cls: 'bg-accent-soft text-navy-950' },
             ];
             return (
-              <Reveal as="article" key={it.title} delay={(i % 2) * 80} className="flex flex-col rounded-[24px] border border-line p-6 transition-shadow duration-300 hover:shadow-[0_24px_50px_-30px_rgba(10,23,48,.4)] sm:p-8">
+              <Reveal as="article" key={it.title} delay={(i % 2) * 80} className={`${i === s.items.length - 1 && s.items.length % 2 ? 'md:col-span-2' : ''} flex flex-col rounded-[24px] border border-line p-6 transition-shadow duration-300 hover:shadow-[0_24px_50px_-30px_rgba(10,23,48,.4)] sm:p-8`}>
                 <div className="flex items-center gap-4">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-950 text-accent"><Icon size={20} aria-hidden="true" /></span>
                   <h2 className="text-lg font-bold leading-snug text-navy-950 sm:text-xl">{it.title}</h2>
