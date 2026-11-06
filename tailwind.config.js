@@ -6,12 +6,14 @@ export default {
       colors: {
         navy: { 950: '#050C1A', 900: '#0A1730', 800: '#0F2140', 700: '#18305A', 600: '#244374' },
         ink: '#15171C',
-        mist: '#F4F6F9',
-        line: '#E2E7EF',
+        mist: '#F3F1EC',
+        paper: '#F8F6F1',
+        line: '#E6E1D6',
         accent: { DEFAULT: '#C8F04B', soft: '#EEFBCF', deep: '#7FA51C' },
       },
       fontFamily: {
-        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', '"DM Sans"', 'system-ui', 'sans-serif'],
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       maxWidth: { site: '1180px' },
