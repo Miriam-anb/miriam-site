@@ -108,6 +108,7 @@ export default {
       { title: 'Lead management and tracking', problem: 'Leads get lost between forms, emails and messages.', ai: 'Every lead is recorded, qualified and followed up automatically.', result: 'No missed opportunity, clear follow-up.' },
       { title: 'Automated sales follow-ups', problem: 'Follow-ups are forgotten or sent too late.', ai: 'Personalised follow-ups sent at the right time.', result: 'More replies, with no extra effort.' },
       { title: 'AI agent for ad content', problem: 'Creating ads and posts takes time and ideas.', ai: 'An agent that drafts content, hashtags and prepares publishing.', result: 'Regular, consistent communication.' },
+      { title: 'AI voice agent to handle calls', problem: 'Missed calls, a team constantly interrupted and customers left waiting on the line.', ai: 'A voice agent that answers at any hour, understands the request, handles common questions, books appointments and logs every call in your tools. For complex cases, it transfers the call to the right person with a summary of the request.', result: 'No call lost, and a team focused on the requests that matter.' },
       { title: 'Administrative task automation', problem: 'Data entry, filing and documents take up a large part of the day.', ai: 'Documents are read, filed and their data entered automatically.', result: 'Less paperwork, more useful time.' },
     ],
   },
