@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowDown, ArrowUp, Check, ChevronLeft, ImagePlus, Loader2, LogOut, Pencil, Plus, Save, Trash2, X } from 'lucide-react';
+import { ArrowDown, ArrowUp, Check, ChevronLeft, ExternalLink, FileText, ImagePlus, Loader2, LogOut, Pencil, Plus, Save, Trash2, Upload, X } from 'lucide-react';
 
 // Espace admin caché : /espace-miriam (aucun lien sur le site, protégé par mot de passe)
 
@@ -44,6 +44,15 @@ const Input = ({ label, hint, value, onChange, ...rest }) => (
 const Area = ({ label, hint, value, onChange, rows = 4 }) => (
   <label className="block"><Label hint={hint}>{label}</Label><textarea className={field} rows={rows} value={value ?? ''} onChange={(e) => onChange(e.target.value)} /></label>
 );
+// Liste « une entrée par ligne » : garde le texte tapé (lignes vides comprises) pendant la saisie
+function LinesArea({ label, hint, value, onChange, rows = 4 }) {
+  const [text, setText] = useState(() => lines(value));
+  return (
+    <label className="block"><Label hint={hint}>{label}</Label>
+      <textarea className={field} rows={rows} value={text} onChange={(e) => { setText(e.target.value); onChange(toLines(e.target.value)); }} />
+    </label>
+  );
+}
 const Btn = ({ children, variant = 'dark', className = '', ...rest }) => {
   const v = { dark: 'bg-navy-950 text-white hover:bg-navy-800', accent: 'bg-accent text-navy-950 hover:bg-[#d4f562]', light: 'border border-line bg-white text-navy-950 hover:border-navy-900/30', danger: 'border border-red-200 bg-white text-red-600 hover:bg-red-50' }[variant];
   return <button type="button" className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:opacity-50 ${v} ${className}`} {...rest}>{children}</button>;
@@ -163,7 +172,7 @@ function ProjectEditor({ initial, onCancel, onDone, pending, setPending }) {
             <Area label="Description" rows={3} value={p[l].description} onChange={(v) => setL(l, 'description', v)} />
             <Area label="Problème résolu" rows={2} value={p[l].problem} onChange={(v) => setL(l, 'problem', v)} />
             <Area label="Mon rôle" hint="(facultatif)" rows={2} value={p[l].role} onChange={(v) => setL(l, 'role', v)} />
-            <Area label="Fonctionnalités" hint="(une par ligne)" rows={6} value={lines(p[l].features)} onChange={(v) => setL(l, 'features', toLines(v))} />
+            <LinesArea label="Fonctionnalités" hint="(une par ligne)" rows={6} value={p[l].features} onChange={(v) => setL(l, 'features', v)} />
           </LangCol>
         ))}
       </div>
@@ -204,11 +213,11 @@ function StepEditor({ initial, onCancel, onDone }) {
             <Input label="Période" value={s[l].period} onChange={(v) => setL(l, 'period', v)} placeholder={l === 'fr' ? 'Mai – octobre 2026' : 'May – October 2026'} />
             <Input label="Intitulé" value={s[l].role} onChange={(v) => setL(l, 'role', v)} />
             <Input label="Lieu / type" hint="(facultatif)" value={s[l].place} onChange={(v) => setL(l, 'place', v)} />
-            <Area label="Points" hint="(un par ligne)" rows={5} value={lines(s[l].items)} onChange={(v) => setL(l, 'items', toLines(v))} />
+            <LinesArea label="Points" hint="(un par ligne)" rows={5} value={s[l].items} onChange={(v) => setL(l, 'items', v)} />
             {s[l].groups.map((g, i) => (
               <div key={i} className="space-y-3 rounded-xl border border-line bg-white p-3">
                 <Input label={`Bloc ${i + 1} — titre`} value={g.title} onChange={(v) => setGroup(l, i, 'title', v)} />
-                <Area label="Points du bloc" hint="(un par ligne)" rows={4} value={lines(g.items)} onChange={(v) => setGroup(l, i, 'items', toLines(v))} />
+                <LinesArea label="Points du bloc" hint="(un par ligne)" rows={4} value={g.items} onChange={(v) => setGroup(l, i, 'items', v)} />
               </div>
             ))}
           </LangCol>
@@ -249,6 +258,66 @@ function ItemList({ items, title, sub, onEdit, onMove, onDelete }) {
   );
 }
 
+/* ---------- CV & outils ---------- */
+function ProfileTab({ outils, setOutils, token, onAuthError }) {
+  const [file, setFile] = useState(null);
+  const [cvStatus, setCvStatus] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const pick = (f) => {
+    setCvStatus(null);
+    if (!f) return setFile(null);
+    if (f.type !== 'application/pdf') { setFile(null); return setCvStatus({ type: 'error', text: 'Choisissez un fichier PDF.' }); }
+    if (f.size > 3 * 1024 * 1024) { setFile(null); return setCvStatus({ type: 'error', text: 'Le PDF dépasse 3 Mo.' }); }
+    setFile(f);
+  };
+  const upload = async () => {
+    setBusy(true); setCvStatus(null);
+    try {
+      const base64 = await new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1]); r.onerror = rej; r.readAsDataURL(file); });
+      await api({ action: 'cv', base64 }, token);
+      setFile(null);
+      setCvStatus({ type: 'ok', text: 'CV mis en ligne ! Il sera disponible sur le site dans 1 à 2 minutes.' });
+    } catch (e) { if (e.status === 401) onAuthError(); setCvStatus({ type: 'error', text: e.message }); }
+    finally { setBusy(false); }
+  };
+  return (
+    <div className="space-y-6">
+      <section className="rounded-[20px] border border-line bg-white p-5 sm:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-bold text-navy-950">CV</h2>
+            <p className="text-sm text-ink/60">Le PDF téléchargé par le bouton « Télécharger mon CV » (3 Mo maximum).</p>
+          </div>
+          <a href="/cv/Miriam-ANIBABA-CV.pdf" target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-700 hover:text-navy-950"><ExternalLink size={15} />Voir le CV actuel</a>
+        </div>
+        <div className="mt-5 flex flex-wrap items-center gap-3">
+          <label className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-semibold text-navy-950 transition hover:border-navy-900/30">
+            <FileText size={16} />{file ? file.name : 'Choisir un PDF'}
+            <input type="file" accept="application/pdf" className="hidden" onChange={(e) => { pick(e.target.files[0]); e.target.value = ''; }} />
+          </label>
+          <Btn variant="accent" onClick={upload} disabled={!file || busy}>{busy ? <Loader2 size={16} className="animate-spin" /> : <Upload size={16} />}Mettre en ligne le CV</Btn>
+        </div>
+        {cvStatus && <p className={`mt-4 rounded-xl p-3 text-sm ${cvStatus.type === 'ok' ? 'bg-accent-soft text-navy-900' : 'bg-red-50 text-red-700'}`} role="status">{cvStatus.text}</p>}
+      </section>
+
+      <section className="rounded-[20px] border border-line bg-white p-5 sm:p-6">
+        <h2 className="text-lg font-bold text-navy-950">Outils et technologies</h2>
+        <p className="text-sm text-ink/60">La liste affichée sur la page À propos. Un outil par ligne, puis « Enregistrer » en haut.</p>
+        <div className="mt-5 grid gap-4 lg:grid-cols-2">
+          {['fr', 'en'].map((l) => (
+            <LangCol key={l} lang={l}>
+              <LinesArea label="Outils" hint="(un par ligne)" rows={12} value={outils[l]} onChange={(v) => setOutils({ ...outils, [l]: v })} />
+              <div className="flex flex-wrap gap-1.5">
+                {(outils[l] || []).map((t) => <span key={t} className="rounded-full border border-line bg-white px-2.5 py-1 text-xs font-medium text-navy-900">{t}</span>)}
+              </div>
+            </LangCol>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
 /* ---------- Page ---------- */
 export default function Admin() {
   const [token, setTok] = useState(getToken);
@@ -256,7 +325,7 @@ export default function Admin() {
   const [tab, setTab] = useState('projects');
   const [editing, setEditing] = useState(null); // { index } ; index = -1 pour un ajout
   const [pending, setPending] = useState({});
-  const [dirty, setDirty] = useState({ projects: false, parcours: false });
+  const [dirty, setDirty] = useState({ projects: false, parcours: false, outils: false });
   const [status, setStatus] = useState(null);
   const [busy, setBusy] = useState(false);
 
@@ -275,7 +344,7 @@ export default function Admin() {
   }, [token]);
 
   useEffect(() => {
-    const warn = (e) => { if (dirty.projects || dirty.parcours) { e.preventDefault(); e.returnValue = ''; } };
+    const warn = (e) => { if (dirty.projects || dirty.parcours || dirty.outils) { e.preventDefault(); e.returnValue = ''; } };
     window.addEventListener('beforeunload', warn);
     return () => window.removeEventListener('beforeunload', warn);
   }, [dirty]);
@@ -306,7 +375,7 @@ export default function Admin() {
 
   if (!token) return <Login onLogged={setTok} />;
 
-  const tabs = [['projects', 'Réalisations'], ['parcours', 'Parcours']];
+  const tabs = [['projects', 'Réalisations'], ['parcours', 'Parcours'], ['outils', 'CV & outils']];
   return (
     <div className="min-h-screen bg-mist font-sans text-ink">
       <header className="sticky top-0 z-40 border-b border-white/10 bg-navy-950">
@@ -347,7 +416,7 @@ export default function Admin() {
                 ))}
               </div>
               <div className="flex flex-wrap gap-2">
-                <Btn variant="light" onClick={() => setEditing({ index: -1 })}><Plus size={16} />Ajouter</Btn>
+                {tab !== 'outils' && <Btn variant="light" onClick={() => setEditing({ index: -1 })}><Plus size={16} />Ajouter</Btn>}
                 <Btn variant="accent" onClick={save} disabled={busy || !dirty[tab]}>
                   {busy ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}Enregistrer
                 </Btn>
@@ -362,7 +431,9 @@ export default function Admin() {
             {dirty[tab] && !status && <p className="mt-5 rounded-xl bg-amber-50 p-4 text-sm text-amber-800">Modifications non enregistrées : cliquez sur « Enregistrer » pour les publier.</p>}
 
             <div className="mt-6">
-              {tab === 'projects'
+              {tab === 'outils'
+                ? <ProfileTab outils={data.outils} setOutils={setList} token={token} onAuthError={() => { setToken(''); setTok(''); }} />
+                : tab === 'projects'
                 ? <ItemList items={list} title={(p) => p.fr.name} sub={(p) => `${p.category === 'ai' ? 'IA & automatisation' : 'Développement web'}${p.client ? ' · Projet client' : ''} · ${[p.image, ...(p.gallery || [])].filter(Boolean).length} capture(s)`} onEdit={(i) => setEditing({ index: i })} onMove={move} onDelete={remove} />
                 : <ItemList items={list} title={(s) => s.fr.role} sub={(s) => `${s.fr.period}${s.fr.place ? ' · ' + s.fr.place : ''}`} onEdit={(i) => setEditing({ index: i })} onMove={move} onDelete={remove} />}
             </div>

@@ -4,6 +4,7 @@ import { href, useI18n } from '../i18n/index.jsx';
 import { useSeo } from '../lib/seo.js';
 import { site } from '../data/site.js';
 import parcours from '../content/parcours.json';
+import outils from '../content/outils.json';
 import { Button, Container, Reveal, SectionHead } from '../components/ui.jsx';
 import { CtaBand, PageHeader } from '../components/blocks.jsx';
 
@@ -48,7 +49,7 @@ export default function About() {
           <Reveal delay={120} className="rounded-[24px] bg-mist p-7 sm:p-8">
             <p className="text-xs font-bold uppercase tracking-[.16em] text-navy-600">{a.stackTitle}</p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {a.stack.map((s) => <span key={s} className="rounded-full border border-line bg-white px-3.5 py-1.5 text-sm font-medium text-navy-900">{s}</span>)}
+              {(outils[lang] || outils.fr).map((s) => <span key={s} className="rounded-full border border-line bg-white px-3.5 py-1.5 text-sm font-medium text-navy-900">{s}</span>)}
             </div>
           </Reveal>
         </Container>
