@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { href, useI18n } from '../i18n/index.jsx';
 import { useSeo } from '../lib/seo.js';
 import { site } from '../data/site.js';
+import parcours from '../content/parcours.json';
 import { Button, Container, Reveal, SectionHead } from '../components/ui.jsx';
 import { CtaBand, PageHeader } from '../components/blocks.jsx';
 
@@ -75,16 +76,16 @@ export default function About() {
         <Container>
           <SectionHead title={a.pathTitle} />
           <ol className="relative ml-2 mt-12 border-l border-navy-900/15 pl-8">
-            {a.path.map((p, i) => (
-              <Reveal as="li" key={p.period} delay={Math.min(i, 3) * 60} className="relative pb-12 last:pb-0">
+            {parcours.map((e) => ({ ...e, ...e[lang] })).map((p, i) => (
+              <Reveal as="li" key={p.id} delay={Math.min(i, 3) * 60} className="relative pb-12 last:pb-0">
                 <span className={`absolute -left-[42px] top-0.5 flex h-5 w-5 items-center justify-center rounded-full border-2 border-mist ${i === 0 ? 'bg-accent-deep' : p.education ? 'bg-navy-900' : 'bg-navy-600/50'}`} aria-hidden="true">
                   {p.education && <GraduationCap size={11} className="text-white" />}
                 </span>
                 <p className="text-xs font-bold uppercase tracking-[.14em] text-navy-600">{p.period}</p>
                 <h3 className="mt-1.5 text-lg font-bold leading-snug text-navy-950 sm:text-xl">{p.role}</h3>
                 {p.place && <p className="mt-0.5 text-sm font-medium text-ink/55">{p.place}</p>}
-                {p.items && <div className="max-w-3xl"><Bullets items={p.items} /></div>}
-                {p.groups && (
+                {p.items?.length > 0 && <div className="max-w-3xl"><Bullets items={p.items} /></div>}
+                {p.groups?.length > 0 && (
                   <div className="mt-4 grid max-w-4xl gap-4 lg:grid-cols-2">
                     {p.groups.map((g) => (
                       <div key={g.title} className="rounded-2xl border border-line bg-white p-5">
