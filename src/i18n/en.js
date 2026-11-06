@@ -122,8 +122,9 @@ export default {
     eyebrow: 'About',
     title: 'From web development to artificial intelligence',
     intro: [
-      'I am Miriam ANIBABA, a developer based in Cotonou, Benin. I started with web development and application testing before specialising in AI agents and automation.',
-      'Today I build n8n workflows, AI agents and API integrations that answer precise business needs: less manual work, more reliable processes and more time for what matters.',
+      'I am **Miriam ANIBABA**, a developer specialising in **AI agents, automation and web platforms**, based in Cotonou, Benin.',
+      'I started with web development and application testing. That dual experience taught me to build, but also to check that every feature truly works for the people using it. I then worked on **B2B platforms for the Quebec market**: matchmaking, quotes, truck route calculation, notifications. Today I add artificial intelligence and automation to those foundations.',
+      'My approach is simple: **start from your problem, not from a list of tools.** I build AI agents, n8n workflows and web applications that take over repetitive tasks, connect your tools and save you time every day. I am open to any kind of collaboration, whether a custom project, a freelance assignment or a position within a team.',
     ],
     strengthsTitle: 'What I bring',
     strengths: [
@@ -136,14 +137,63 @@ export default {
     ],
     pathTitle: 'Background',
     path: [
-      { period: 'Since June 2026', role: 'AI & Automation Developer', place: 'Independent projects', text: 'Automation solutions, n8n workflows, AI agents, OpenAI and Claude integrations.' },
-      { period: 'Dec 2025 – Apr 2026', role: 'Web & App Tester', place: 'Freelance', text: 'Functional testing, user journeys, bug documentation and follow-up.' },
-      { period: 'Mar – Jun 2025', role: 'Assistant Developer & Tester', place: 'Wahouh Monde — internship', text: 'Attendance-tracking mobile app (Dart, Flutter).' },
-      { period: 'Jun – Jul 2024', role: 'Web Developer', place: 'ATB — internship', text: 'Website design, interface integration, fixes and testing.' },
-      { period: '2022 – 2025', role: 'Bachelor’s in Computer Systems and Software', place: 'Haute École du Commerce et de Management', text: '' },
+      {
+        period: 'May – October 2026', role: 'Full-stack Developer — AI & Process Automation', place: 'Freelance assignment', link: true,
+        groups: [
+          { title: 'B2B platforms for a client in Quebec', items: [
+            'Designed and built Réseau Lourd, Réseau Agrégat, Réseau Pépinière and Réseau Excavateur: customer–supplier matchmaking, quote requests, catalogues, multi-role spaces.',
+            'Automated exchanges: automatic SMS and email notifications, requests routed to the relevant suppliers, quotes sent by email.',
+            'Integrated AI assistants that guide customers and launch quotes (“Marcel”, “Léo”).',
+            'API integration: truck route calculation (HERE), SMS (Twilio).',
+            'Functional testing and client-requested changes on Eazy Vrac and Terre à Donner.',
+          ] },
+          { title: 'AI agents and n8n workflows', items: [
+            'Agent Emploi: a multi-user platform that searches LinkedIn daily (Apify), analyses offers with AI (Gemini) and prepares a tailored résumé and cover letter for each match (Laravel, Vue 3, n8n).',
+            'Music YouTube channel agent: from a song upload to automatic publishing of the video and the Short, with AI-generated cover and clip and automatic editing.',
+            'Invoice processing agent: collection by email or form, data extraction, checks (missing amounts, totals, duplicates), email approval and logging in Google Sheets.',
+          ] },
+        ],
+        stack: 'Laravel, Vue 3, Next.js, NestJS, MySQL, PostgreSQL, n8n, Gemini, OpenAI, Claude, Apify, HERE, Twilio',
+      },
+      {
+        period: 'December 2025 – April 2026', role: 'Web & App Tester', place: 'Freelance assignment',
+        items: [
+          'Functional testing and user-journey checks on web and mobile applications.',
+          'Identified, documented and followed up bugs until they were fixed.',
+          'Alongside: self-taught training in AI agents and automation, building my first n8n workflows and integrating AI APIs (OpenAI, Claude, Gemini).',
+        ],
+      },
+      {
+        period: 'July – November 2025', role: 'Web Developer, AI & Digital Marketing', place: '',
+        items: [
+          'Designed and built websites for an NGO.',
+          'Managed a client’s social media: content creation and scheduling, community management and performance tracking.',
+          'Used AI to produce and schedule posts.',
+        ],
+      },
+      {
+        period: 'March – June 2025', role: 'Assistant Developer & App Tester', place: 'Wahouh Monde — internship',
+        items: [
+          'Contributed to developing and improving an attendance-tracking mobile app (Flutter, Dart).',
+          'Implemented and improved features.',
+          'Functional testing, bug identification and work with the development team to fix them.',
+          'Helped improve the user experience across several projects.',
+        ],
+      },
+      {
+        period: 'June – August 2024', role: 'Web Developer', place: 'ATB — internship',
+        items: [
+          'Designed and built websites tailored to client needs, including a restaurant website built with Bootstrap.',
+          'Interface integration and web feature development.',
+          'Bug fixes and improvements to existing pages.',
+          'Pre-launch testing.',
+        ],
+      },
+      { period: '2022 – 2025', role: 'Bachelor’s in Computer Systems and Software', place: 'Haute École du Commerce et de Management', education: true },
     ],
+    seeProjects: 'See the projects',
+    stack: ['n8n', 'AI Agents', 'Gemini', 'OpenAI API', 'Claude API', 'Apify', 'REST APIs', 'Webhooks', 'Laravel', 'PHP', 'Vue 3', 'Next.js', 'NestJS', 'MySQL', 'PostgreSQL', 'HERE Maps', 'Twilio', 'Flutter', 'Bootstrap', 'Functional testing'],
     stackTitle: 'Tools and technologies',
-    stack: ['n8n', 'AI Agents', 'OpenAI API', 'Claude API', 'REST APIs', 'Webhooks', 'PHP', 'Laravel', 'Vue', 'HTML / CSS', 'Flutter', 'Functional testing'],
     languages: 'Languages: French, English',
     availability: 'Available for freelance work, remotely, for businesses in Benin and internationally.',
   },
