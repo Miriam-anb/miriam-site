@@ -157,7 +157,7 @@ export default {
         stack: 'Laravel, Vue 3, Next.js, NestJS, MySQL, PostgreSQL, n8n, Gemini, OpenAI, Claude, Apify, HERE, Twilio',
       },
       {
-        period: 'December 2025 – April 2026', role: 'Web & App Tester', place: 'Freelance assignment',
+        period: 'December 2025 – April 2026', role: 'Website Developer', place: 'Freelance assignment',
         items: [
           'Functional testing and user-journey checks on web and mobile applications.',
           'Identified, documented and followed up bugs until they were fixed.',
@@ -173,7 +173,7 @@ export default {
         ],
       },
       {
-        period: 'March – June 2025', role: 'Assistant Developer & App Tester', place: 'Wahouh Monde — internship',
+        period: 'March – June 2025', role: 'Assistant App Developer', place: 'Wahouh Monde — internship',
         items: [
           'Contributed to developing and improving an attendance-tracking mobile app (Flutter, Dart).',
           'Implemented and improved features.',

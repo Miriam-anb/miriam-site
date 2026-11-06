@@ -157,7 +157,7 @@ export default {
         stack: 'Laravel, Vue 3, Next.js, NestJS, MySQL, PostgreSQL, n8n, Gemini, OpenAI, Claude, Apify, HERE, Twilio',
       },
       {
-        period: 'Décembre 2025 – avril 2026', role: 'Testeuse d’applications et de sites web', place: 'Mission freelance',
+        period: 'Décembre 2025 – avril 2026', role: 'Développeuse de sites web', place: 'Mission freelance',
         items: [
           'Tests fonctionnels et vérification des parcours utilisateurs sur des applications web et mobiles.',
           'Identification, documentation et suivi des anomalies jusqu’à leur correction.',
@@ -173,7 +173,7 @@ export default {
         ],
       },
       {
-        period: 'Mars – juin 2025', role: 'Assistante développeuse et testeuse d’applications', place: 'Wahouh Monde — stage',
+        period: 'Mars – juin 2025', role: 'Assistante développeuse d’applications', place: 'Wahouh Monde — stage',
         items: [
           'Participation au développement et à l’amélioration d’une application mobile de suivi des présences (Flutter, Dart).',
           'Implémentation et amélioration de fonctionnalités.',
