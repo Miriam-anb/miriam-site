@@ -137,61 +137,6 @@ export default {
       { title: 'Compréhension des besoins métier', text: 'Partir de vos problèmes réels, pas d’une liste d’outils.' },
     ],
     pathTitle: 'Parcours',
-    path: [
-      {
-        period: 'Mai – octobre 2026', role: 'Développeuse full-stack — IA & automatisation des processus', place: 'Mission freelance', link: true,
-        groups: [
-          { title: 'Plateformes B2B pour un client au Québec', items: [
-            'Conception et développement de Réseau Lourd, Réseau Agrégat, Réseau Pépinière et Réseau Excavateur : mise en relation entre clients et fournisseurs, demandes de soumission, catalogues, espaces multi-profils.',
-            'Automatisation des échanges : notifications automatiques par SMS et e-mail, envoi des demandes aux fournisseurs concernés, soumissions envoyées par courriel.',
-            'Intégration d’assistants IA qui orientent les clients et lancent les soumissions (« Marcel », « Léo »).',
-            'Intégration d’API : calcul d’itinéraires pour camions (HERE), SMS (Twilio).',
-            'Tests fonctionnels et modifications demandées par le client sur Eazy Vrac et Terre à Donner.',
-          ] },
-          { title: 'Agents IA et workflows n8n', items: [
-            'Agent Emploi : plateforme multi-utilisateurs qui cherche chaque jour des offres LinkedIn (Apify), les analyse avec l’IA (Gemini) et prépare un CV adapté et une lettre de motivation pour chaque offre retenue (Laravel, Vue 3, n8n).',
-            'Agent de chaîne YouTube musicale : du dépôt d’une musique jusqu’à la publication automatique de la vidéo et du Short, avec pochette et clip générés par IA et un montage automatique.',
-            'Agent de traitement des factures : collecte par e-mail ou formulaire, extraction des données, contrôles (montants manquants, totaux, doublons), approbation par e-mail et enregistrement dans Google Sheets.',
-          ] },
-        ],
-        stack: 'Laravel, Vue 3, Next.js, NestJS, MySQL, PostgreSQL, n8n, Gemini, OpenAI, Claude, Apify, HERE, Twilio',
-      },
-      {
-        period: 'Décembre 2025 – avril 2026', role: 'Développeuse de sites web', place: 'Mission freelance',
-        items: [
-          'Tests fonctionnels et vérification des parcours utilisateurs sur des applications web et mobiles.',
-          'Identification, documentation et suivi des anomalies jusqu’à leur correction.',
-          'En parallèle : formation autonome aux agents IA et à l’automatisation, avec la création de mes premiers workflows n8n et l’intégration des API d’IA (OpenAI, Claude, Gemini).',
-        ],
-      },
-      {
-        period: 'Juillet – novembre 2025', role: 'Développeuse web, IA & marketing digital', place: '',
-        items: [
-          'Conception et développement de sites web pour une ONG.',
-          'Gestion des réseaux sociaux d’un client : création et planification des contenus, animation de la communauté et suivi des résultats.',
-          'Utilisation de l’IA pour produire et programmer les publications.',
-        ],
-      },
-      {
-        period: 'Mars – juin 2025', role: 'Assistante développeuse d’applications', place: 'Wahouh Monde — stage',
-        items: [
-          'Participation au développement et à l’amélioration d’une application mobile de suivi des présences (Flutter, Dart).',
-          'Implémentation et amélioration de fonctionnalités.',
-          'Tests fonctionnels, identification des anomalies et travail avec l’équipe de développement pour les résoudre.',
-          'Contribution à l’amélioration de l’expérience utilisateur sur plusieurs projets.',
-        ],
-      },
-      {
-        period: 'Juin – août 2024', role: 'Développeuse web', place: 'ATB — stage',
-        items: [
-          'Conception et développement de sites web adaptés aux besoins des clients, dont le site d’un restaurant réalisé avec Bootstrap.',
-          'Intégration d’interfaces et développement de fonctionnalités web.',
-          'Correction de bugs et amélioration des pages existantes.',
-          'Tests avant la mise en ligne.',
-        ],
-      },
-      { period: '2022 – 2025', role: 'Licence en Systèmes informatiques et logiciels', place: 'Haute École du Commerce et de Management (HECM) · Cotonou, Bénin', education: true },
-    ],
     seeProjects: 'Voir les réalisations',
     stack: ['n8n', 'Agents IA', 'Gemini', 'OpenAI API', 'Claude API', 'Apify', 'API REST', 'Webhooks', 'Laravel', 'PHP', 'Vue 3', 'Next.js', 'NestJS', 'MySQL', 'PostgreSQL', 'HERE Maps', 'Twilio', 'Flutter', 'Bootstrap', 'Tests fonctionnels'],
     stackTitle: 'Outils et technologies',

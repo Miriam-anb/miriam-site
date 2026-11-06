@@ -137,61 +137,6 @@ export default {
       { title: 'Understanding business needs', text: 'Starting from your real problems, not from a list of tools.' },
     ],
     pathTitle: 'Background',
-    path: [
-      {
-        period: 'May – October 2026', role: 'Full-stack Developer — AI & Process Automation', place: 'Freelance assignment', link: true,
-        groups: [
-          { title: 'B2B platforms for a client in Quebec', items: [
-            'Designed and built Réseau Lourd, Réseau Agrégat, Réseau Pépinière and Réseau Excavateur: customer–supplier matchmaking, quote requests, catalogues, multi-role spaces.',
-            'Automated exchanges: automatic SMS and email notifications, requests routed to the relevant suppliers, quotes sent by email.',
-            'Integrated AI assistants that guide customers and launch quotes (“Marcel”, “Léo”).',
-            'API integration: truck route calculation (HERE), SMS (Twilio).',
-            'Functional testing and client-requested changes on Eazy Vrac and Terre à Donner.',
-          ] },
-          { title: 'AI agents and n8n workflows', items: [
-            'Agent Emploi: a multi-user platform that searches LinkedIn daily (Apify), analyses offers with AI (Gemini) and prepares a tailored résumé and cover letter for each match (Laravel, Vue 3, n8n).',
-            'Music YouTube channel agent: from a song upload to automatic publishing of the video and the Short, with AI-generated cover and clip and automatic editing.',
-            'Invoice processing agent: collection by email or form, data extraction, checks (missing amounts, totals, duplicates), email approval and logging in Google Sheets.',
-          ] },
-        ],
-        stack: 'Laravel, Vue 3, Next.js, NestJS, MySQL, PostgreSQL, n8n, Gemini, OpenAI, Claude, Apify, HERE, Twilio',
-      },
-      {
-        period: 'December 2025 – April 2026', role: 'Website Developer', place: 'Freelance assignment',
-        items: [
-          'Functional testing and user-journey checks on web and mobile applications.',
-          'Identified, documented and followed up bugs until they were fixed.',
-          'Alongside: self-taught training in AI agents and automation, building my first n8n workflows and integrating AI APIs (OpenAI, Claude, Gemini).',
-        ],
-      },
-      {
-        period: 'July – November 2025', role: 'Web Developer, AI & Digital Marketing', place: '',
-        items: [
-          'Designed and built websites for an NGO.',
-          'Managed a client’s social media: content creation and scheduling, community management and performance tracking.',
-          'Used AI to produce and schedule posts.',
-        ],
-      },
-      {
-        period: 'March – June 2025', role: 'Assistant App Developer', place: 'Wahouh Monde — internship',
-        items: [
-          'Contributed to developing and improving an attendance-tracking mobile app (Flutter, Dart).',
-          'Implemented and improved features.',
-          'Functional testing, bug identification and work with the development team to fix them.',
-          'Helped improve the user experience across several projects.',
-        ],
-      },
-      {
-        period: 'June – August 2024', role: 'Web Developer', place: 'ATB — internship',
-        items: [
-          'Designed and built websites tailored to client needs, including a restaurant website built with Bootstrap.',
-          'Interface integration and web feature development.',
-          'Bug fixes and improvements to existing pages.',
-          'Pre-launch testing.',
-        ],
-      },
-      { period: '2022 – 2025', role: 'Bachelor’s in Computer Systems and Software', place: 'Haute École du Commerce et de Management (HECM) · Cotonou, Benin', education: true },
-    ],
     seeProjects: 'See the projects',
     stack: ['n8n', 'AI Agents', 'Gemini', 'OpenAI API', 'Claude API', 'Apify', 'REST APIs', 'Webhooks', 'Laravel', 'PHP', 'Vue 3', 'Next.js', 'NestJS', 'MySQL', 'PostgreSQL', 'HERE Maps', 'Twilio', 'Flutter', 'Bootstrap', 'Functional testing'],
     stackTitle: 'Tools and technologies',
