@@ -24,9 +24,9 @@ export default function About() {
   return (
     <>
       <PageHeader eyebrow={a.eyebrow} title={a.title}>
-        <Reveal delay={160} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-ink/60">
-          <span className="inline-flex items-center gap-2"><MapPin size={15} className="text-accent-deep" aria-hidden="true" />{site.city}</span>
-          <span className="inline-flex items-center gap-2"><Languages size={15} className="text-accent-deep" aria-hidden="true" />{a.languages}</span>
+        <Reveal delay={160} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/60">
+          <span className="inline-flex items-center gap-2"><MapPin size={15} className="text-accent" aria-hidden="true" />{site.city}</span>
+          <span className="inline-flex items-center gap-2"><Languages size={15} className="text-accent" aria-hidden="true" />{a.languages}</span>
         </Reveal>
       </PageHeader>
 

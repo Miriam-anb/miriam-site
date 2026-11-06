@@ -17,38 +17,39 @@ export default function Home() {
   return (
     <>
       {/* En-tête */}
-      <section className="relative overflow-hidden border-b border-line bg-paper">
+      <section className="relative overflow-hidden bg-navy-950">
+        <GridBackdrop />
         <Container className="relative grid items-center gap-12 pb-24 pt-14 lg:grid-cols-[1.08fr_.92fr] lg:pb-28 lg:pt-20">
           <div>
             <Reveal>
-              <Link to={href(lang, 'contact')} className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-accent-deep/30 bg-accent-soft py-1.5 pl-3 pr-4 text-[13px] font-semibold text-navy-900 transition hover:border-accent-deep/60">
+              <Link to={href(lang, 'contact')} className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 py-1.5 pl-3 pr-4 text-[13px] font-semibold text-accent transition hover:border-accent/60 hover:bg-accent/15">
                 <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-deep opacity-50" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-deep" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent" />
                 </span>
                 {h.available}
               </Link>
             </Reveal>
-            <Reveal><p className="text-sm font-medium tracking-wide text-ink/55">{h.eyebrow}</p></Reveal>
+            <Reveal><Eyebrow light>{h.eyebrow}</Eyebrow></Reveal>
             <Reveal delay={80}>
-              <h1 className="mt-6 text-[2.5rem] font-bold leading-[1.04] text-navy-950 sm:text-[3.6rem]">
-                {h.title1} <span className="bg-[linear-gradient(transparent_62%,#C8F04B_62%,#C8F04B_92%,transparent_92%)] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">{h.titleEm}</span> {h.title2}
+              <h1 className="mt-6 text-[2.5rem] font-bold leading-[1.06] tracking-tight text-white sm:text-6xl">
+                {h.title1} <span className="font-serif text-[1.08em] font-normal italic text-accent">{h.titleEm}</span> {h.title2}
               </h1>
             </Reveal>
-            <Reveal delay={160}><p className="mt-7 max-w-xl text-lg leading-relaxed text-ink/70">{h.subtitle}</p></Reveal>
+            <Reveal delay={160}><p className="mt-7 max-w-xl text-lg leading-relaxed text-white/70">{h.subtitle}</p></Reveal>
             <Reveal delay={240} className="mt-9 flex flex-wrap gap-3">
               <Button to={href(lang, 'services')} arrow>{t.common.discover}</Button>
-              <Button to={href(lang, 'projects')} variant="outlineDark">{t.common.seeProjects}</Button>
-              <Button to={href(lang, 'contact')} variant="outlineDark">{t.common.discuss}</Button>
+              <Button to={href(lang, 'projects')} variant="outline">{t.common.seeProjects}</Button>
+              <Button to={href(lang, 'contact')} variant="outline">{t.common.discuss}</Button>
             </Reveal>
             <Reveal delay={320}>
-              <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink/60">
-                {h.trust.map((x) => <li key={x} className="inline-flex items-center gap-2"><Check size={15} className="text-accent-deep" aria-hidden="true" />{x}</li>)}
+              <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/55">
+                {h.trust.map((x) => <li key={x} className="inline-flex items-center gap-2"><Check size={15} className="text-accent" aria-hidden="true" />{x}</li>)}
               </ul>
             </Reveal>
           </div>
           <Reveal delay={200} className="relative">
-            <div className="rotate-[0.6deg] rounded-[24px] bg-navy-950 p-4 shadow-[0_30px_60px_-30px_rgba(10,23,48,.55)] ring-1 ring-navy-900/10 sm:p-6">
+            <div className="rounded-[28px] border border-white/10 bg-navy-900/60 p-4 shadow-[0_40px_80px_-40px_rgba(0,0,0,.8)] sm:p-6">
               <HeroIllustration />
             </div>
           </Reveal>

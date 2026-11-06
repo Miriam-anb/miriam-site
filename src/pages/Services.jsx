@@ -15,7 +15,7 @@ export default function Services() {
       <PageHeader eyebrow={s.eyebrow} title={s.title} lead={s.lead}>
         <Reveal delay={240} className="mt-10 flex flex-wrap gap-2">
           {s.items.map((it) => (
-            <a key={it.id} href={`#${it.id}`} className="rounded-xl border border-line bg-white px-4 py-2 text-sm font-medium text-ink/75 transition hover:border-navy-900/30 hover:text-navy-950">{it.title}</a>
+            <a key={it.id} href={`#${it.id}`} className="rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/75 transition hover:border-accent hover:text-white">{it.title}</a>
           ))}
         </Reveal>
       </PageHeader>
@@ -27,7 +27,7 @@ export default function Services() {
               <Reveal as="article" key={it.id} id={it.id} className="scroll-mt-28 overflow-hidden rounded-[26px] border border-line">
                 <div className="grid lg:grid-cols-[.9fr_1.1fr]">
                   <div className="relative bg-navy-950 p-8 sm:p-10">
-                    <span className="font-display text-6xl font-bold text-white/10">0{i + 1}</span>
+                    <span className="font-serif text-6xl italic text-white/10">0{i + 1}</span>
                     <span className="mt-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-navy-950"><Icon size={22} aria-hidden="true" /></span>
                     <h2 className="mt-6 text-2xl font-bold tracking-tight text-white sm:text-3xl">{it.title}</h2>
                     <div className="mt-6 space-y-4 text-[15px] leading-relaxed">
