@@ -7,11 +7,12 @@ import { Button, Container, Eyebrow, GridBackdrop, Reveal, SectionHead } from '.
 // En-tête sombre des pages intérieures
 export function PageHeader({ eyebrow, title, lead, children }) {
   return (
-    <section className="relative overflow-hidden border-b border-line bg-paper pb-20 pt-16 sm:pb-24 sm:pt-20">
+    <section className="relative overflow-hidden bg-navy-950 pb-20 pt-16 sm:pb-24 sm:pt-20">
+      <GridBackdrop />
       <Container className="relative">
-        <Reveal><Eyebrow>{eyebrow}</Eyebrow></Reveal>
-        <Reveal delay={80}><h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.06] text-navy-950 sm:text-[3.2rem]">{title}</h1></Reveal>
-        {lead && <Reveal delay={160}><p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/70">{lead}</p></Reveal>}
+        <Reveal><Eyebrow light>{eyebrow}</Eyebrow></Reveal>
+        <Reveal delay={80}><h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl">{title}</h1></Reveal>
+        {lead && <Reveal delay={160}><p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{lead}</p></Reveal>}
         {children}
       </Container>
     </section>
@@ -27,7 +28,7 @@ export function Process() {
         <ol className="mt-14 grid gap-4 md:grid-cols-5">
           {t.process.map((s, i) => (
             <Reveal as="li" key={s.title} delay={i * 80} className="relative rounded-2xl border border-line bg-white p-6 transition-shadow duration-300 hover:shadow-[0_18px_40px_-24px_rgba(10,23,48,.35)]">
-              <span className="font-display text-4xl font-bold text-navy-900/15">0{i + 1}</span>
+              <span className="font-serif text-4xl italic text-navy-600/40">0{i + 1}</span>
               <h3 className="mt-4 text-[15px] font-bold leading-snug text-navy-950">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink/65">{s.text}</p>
             </Reveal>
