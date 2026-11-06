@@ -6,7 +6,9 @@ import crypto from 'node:crypto';
 
 const REPO = process.env.GITHUB_REPO || 'Miriam-anb/miriam-site';
 const BRANCH = process.env.GITHUB_BRANCH || 'main';
-const FILES = { projects: 'src/content/projects.json', parcours: 'src/content/parcours.json' };
+const FILES = { projects: 'src/content/projects.json', parcours: 'src/content/parcours.json', outils: 'src/content/outils.json' };
+const CV_PATH = 'public/cv/Miriam-ANIBABA-CV.pdf';
+const MAX_CV_BYTES = 3 * 1024 * 1024;
 const TOKEN_HOURS = 8;
 
 const sign = (data) => crypto.createHmac('sha256', process.env.ADMIN_PASSWORD).update(data).digest('hex');
@@ -70,21 +72,34 @@ export default async function handler(req, res) {
     if (!validToken(req.headers['x-admin-token'])) return res.status(401).json({ error: 'Session expirée, reconnectez-vous.' });
 
     if (body.action === 'load') {
-      const [projects, parcours] = await Promise.all([readFile(FILES.projects), readFile(FILES.parcours)]);
-      return res.status(200).json({ projects, parcours });
+      const [projects, parcours, outils] = await Promise.all([readFile(FILES.projects), readFile(FILES.parcours), readFile(FILES.outils)]);
+      return res.status(200).json({ projects, parcours, outils });
     }
 
     if (body.action === 'save') {
       const path = FILES[body.file];
-      if (!path || !Array.isArray(body.data)) return res.status(400).json({ error: 'Données invalides' });
+      const isList = (x) => Array.isArray(x);
+      const okData = body.file === 'outils'
+        ? body.data && isList(body.data.fr) && isList(body.data.en) && [...body.data.fr, ...body.data.en].every((t) => typeof t === 'string' && t.length <= 60)
+        : isList(body.data);
+      if (!path || !okData) return res.status(400).json({ error: 'Données invalides' });
       const images = Array.isArray(body.images) ? body.images : [];
       if (images.length > 20 || images.some((i) => !validImagePath(i.path) || typeof i.base64 !== 'string')) {
         return res.status(400).json({ error: 'Image invalide' });
       }
       const json = JSON.stringify(body.data, null, 2) + '\n';
       const files = [...images, { path, base64: Buffer.from(json, 'utf8').toString('base64') }];
-      const label = body.file === 'projects' ? 'des réalisations' : 'du parcours';
+      const label = { projects: 'des réalisations', parcours: 'du parcours', outils: 'des outils' }[body.file];
       const sha = await commit(files, `Mise à jour ${label} depuis l'espace admin`);
+      return res.status(200).json({ ok: true, sha });
+    }
+
+    if (body.action === 'cv') {
+      const b64 = String(body.base64 || '');
+      const size = Buffer.byteLength(b64, 'base64');
+      if (!b64.startsWith('JVBER')) return res.status(400).json({ error: 'Le fichier doit être un PDF.' });
+      if (size > MAX_CV_BYTES) return res.status(400).json({ error: 'Le PDF dépasse 3 Mo.' });
+      const sha = await commit([{ path: CV_PATH, base64: b64 }], 'Mise à jour du CV depuis l\'espace admin');
       return res.status(200).json({ ok: true, sha });
     }
 
