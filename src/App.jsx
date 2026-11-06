@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import { I18nProvider, languages, pageFromSlug } from './i18n/index.jsx';
 import Layout from './components/Layout.jsx';
@@ -8,6 +9,9 @@ import Projects from './pages/Projects.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
+
+// Espace admin caché, chargé uniquement quand on ouvre son adresse
+const Admin = lazy(() => import('./pages/Admin.jsx'));
 
 const pages = { services: Services, solutions: Solutions, projects: Projects, about: About, contact: Contact };
 
@@ -29,6 +33,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to={`/${preferred()}`} replace />} />
+      <Route path="/espace-miriam" element={<Suspense fallback={null}><Admin /></Suspense>} />
       <Route path="/:lang" element={<LangGate />}>
         <Route index element={<Home />} />
         <Route path=":slug" element={<Page />} />
